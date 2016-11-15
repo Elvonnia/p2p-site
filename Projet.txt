@@ -1,0 +1,31 @@
+creation d'une plateforme de dépot de fichiers à partir d'une connexion à une salle.
+
+Accès au site
+Connexion à une salle via une liste de salle existantes(connexion possible juste dans une salle incomplète) ou via la creation d'un salle
+affichage de l'interface de la salle avec notification de nouveau fichier(comme un chat) et bouton d'envoi de fichier
+bouton exit pour quitter la salle et retour à la page de listing de salle 
+
+le fichier est déposé dans une base de donnée et une notification en temps réel est envoyé au destinataire
+le nom des salles ainsi que le nombre de personnes connecté est aussi en temps réel.
+Possibilité de restreindre l'accès à la salle par mot de passe
+	
+
+
+listing des taches:
+	listing des salles (acceuil)
+		nom de la salle, nombre de personne (nb/nbmax), noms (liste)
+	salles
+		chat(optionnel), liste personnes dans la salle, fichiers, notifications
+	création de salle
+		nom salle, case mdp, taille salle
+	
+	base de donnée et requetes 
+		stockage/requete des fichiers
+		stockage/requete des salles
+
+
+repartition des taches
+	Kim: Mise en place de la base de donnée, requete sur cette derniere
+	Matthias: interface client(listing des salles, salles, création de salle)
+	Guillaume: serveur et communication avec les clients, sockets
+ 
