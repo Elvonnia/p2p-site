@@ -1,2 +1,9 @@
 <h1>Pages#home</h1>
-<p>Hello Krigan! How are you? :)</p>
+<p>Here the room list</p>
+<div class="room_list">
+	<% @rooms.each do |room| %> 
+		<p class="room_name">
+			This is a room named <%= room.name %>
+		</p>
+	<% end %>
+</div>

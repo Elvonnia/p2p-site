@@ -1,0 +1,12 @@
+<h1>Pages#room</h1>
+
+<p>This is a room.</p>
+
+<h3 class="room_title"><%= @room.name %></h3>
+<div class="user_list">
+	<% room.users.each do |user| %>
+		<aside class="username">
+			<%= @user.name %>
+		</aside>
+	<% end %>
+</div>

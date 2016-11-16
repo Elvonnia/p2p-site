@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'pages/create_room'
+
   get 'pages/home'
 
   # The priority is based upon order of creation: first created -> highest priority.
