@@ -1,7 +1,7 @@
 
 // Modify to apply with views
 
-App.messages = App.cable.subscriptions.create('RoomsChannel', {  
+App.messages = App.cable.subscriptions.create('MessagesChannel', {  
   received: function(data) {
     $("#messages").removeClass('hidden')
     return $('#messages').append(this.renderMessage(data));
