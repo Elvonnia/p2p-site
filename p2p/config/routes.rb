@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+<<<<<<< HEAD
   get 'pages/create_room'
 
   get 'pages/home'
@@ -57,4 +58,7 @@ Rails.application.routes.draw do
   #     # (app/controllers/admin/products_controller.rb)
   #     resources :products
   #   end
+=======
+  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
+>>>>>>> b780dc6ed21a821eb1ab4d2b18aa2f2c978b31c8
 end
