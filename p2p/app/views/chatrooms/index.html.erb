@@ -1,18 +1,17 @@
-<div class="row col-md-8 col-md-offset-2">
+<div class="row col-md-8 col-md-offset-2" id="chatroom-title">
+  <h1>Chatrooms</h1>
+</div>
 
-	<h1><%= @chatroom.name %></h1>
-
-	<div class="panel panel-default">
-		<% if @chatroom.messages.any? %>
-			<div class="panel-body" id="messages">
-				<%= render partial: 'messages/message', collection: @chatroom.messages%>
-			</div>
-		<%else%>
-			<div class="panel-body hidden" id="messages">
-			</div>
-		<%end%>
-	</div>
-
-	<%= render partial: 'messages/message_form', locals: {message: @message, chatroom: @chatroom}%>
-
+<div class="row col-md-8 col-md-offset-2" id="chatrooms">
+  <%= render partial: 'chatroom_form', locals: {chatroom: @chatroom} %>
+  <div id="chatroom-errors">
+    
+  </div>
+    <ul id="chatroom-index"> 
+  <% if @chatrooms.any? %>
+      <%= render @chatrooms%>
+  <%else %>
+    </ul>
+    <p>Be the first one to make a chatroom!</p>
+  <% end %>
 </div>
