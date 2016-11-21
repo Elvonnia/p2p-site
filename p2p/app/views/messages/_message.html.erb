@@ -1,3 +1,5 @@
 <div class="message">
-	<%= @message.message %>
+	<% @chatroom.messages.each do |message| %>
+		<%= @message.message %>
+	<% end %>
 </div>

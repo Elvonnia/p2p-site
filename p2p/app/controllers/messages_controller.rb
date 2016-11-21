@@ -7,4 +7,8 @@ class MessagesController < ApplicationController
     head :ok #error
  
   end
+
+  def index
+  	@messages = Message.all
+  end
 end

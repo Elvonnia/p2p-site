@@ -4,3 +4,6 @@ Rails.application.routes.draw do
 
     mount ActionCable.server => '/cable' #enable websockets
 end
+
+get 'messages' => 'messages#index'
+post 'messages' => 'messages#create'
