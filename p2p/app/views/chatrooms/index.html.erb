@@ -3,7 +3,11 @@
 </div>
 
 <div class="row col-md-8 col-md-offset-2" id="chatrooms">
-  <%= render partial: 'chatroom_form', locals: {chatroom: @chatroom} %>
+
+  <div class="chatroom-form">
+  	<%= render partial: 'chatroom_form', locals: {chatroom: @chatroom} %>
+ </div>
+
   <div id="chatroom-errors">
     
   </div>
@@ -12,6 +16,6 @@
       <%= render @chatrooms%>
   <%else %>
     </ul>
-    <p>Be the first one to make a chatroom!</p>
+    <p>There are not chat rooms</p>
   <% end %>
 </div>
