@@ -6,7 +6,9 @@ Rails.application.routes.draw do
 	post 'messages' => 'messages#create'
 	get 'sessions' => 'sessions#new'
 	post 'sessions' => 'sessions#create'
-	get 'chatrooms' => 'chatrooms#index'
+
+	resources :chatrooms, param: :slug
+    resources :messages
 
     mount ActionCable.server => '/cable' #enable websockets
 end

@@ -21,6 +21,8 @@ class ChatroomsController < ApplicationController
     if chatroom.save
       respond_to do |format|
         format.html {redirect to @chatroom}
+      end
+    end
   end
 
   private
@@ -28,3 +30,4 @@ class ChatroomsController < ApplicationController
   def chatroom_params
     params.require(:chatroom).permit(:topic)
   end
+end
