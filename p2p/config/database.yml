@@ -8,20 +8,20 @@ default: &default
   adapter: mysql2
   pool: 5
   timeout: 5000
+  password: "@K123456"
 
 development:
   <<: *default
   pool: 5
-  database: db/development.mysql2
-  password: [@k123456]
+  database: db/development
 
 # Warning: The database defined as "test" will be erased and
 # re-generated from your development database when you run "rake".
 # Do not set this db to the same as development or production.
 test:
   <<: *default
-  database: db/test.mysql2
+  database: db/test
  
 production:
   <<: *default
-  database: db/production.mysql2
+  database: db/production
