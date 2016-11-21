@@ -12,4 +12,29 @@
 
 ActiveRecord::Schema.define(version: 0) do
 
+	create_table "users", force: :cascade do |t|
+		t.string "username", limit:255
+	end
+
+
+	create_table "messages", force: :cascade do |t|
+		t.string "text", limit:3000
+	end
+
+
+	create_table "storefiles", force: :cascade do |t|
+		t.string "name", limit:255
+		t.string "chatroom_id"
+		t.integer "size", limit:"2048"
+		t.string "path"
+	end
+
+
+	create_table "chatrooms", force: :cascade do |t|
+		t.string "name", limit:255
+		t.string "password"
+	end
+
+
+
 end
