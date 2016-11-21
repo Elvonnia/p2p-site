@@ -7,6 +7,4 @@ class MessagesController < ApplicationController
     head :ok #error
  
   end
-
-  ...
 end
