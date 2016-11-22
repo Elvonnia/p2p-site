@@ -7,8 +7,9 @@ Rails.application.routes.draw do
 	get 'sessions' => 'sessions#new'
 	post 'sessions' => 'sessions#create'
 	put 'sessions' => 'sessions#delete'
-	put 'chatrooms' => 'chatrooms#auth'
-	
+	post 'passwords' => 'passwords#create'
+	get 'passwords' => 'passwords#index'
+
 	resources :chatrooms
     resources :messages
 

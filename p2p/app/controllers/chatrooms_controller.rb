@@ -37,11 +37,7 @@ class ChatroomsController < ApplicationController
     puts(@chatroom)
     # @chatroom = Chatroom.includes(:messages).find_by!(id: params[:id])
     if @chatroom.password != ""
-      if password == @chatroom.password
-        @message = Message.new
-      else
-        redirect_to chatrooms_path
-      end
+      redirect_to passwords_path
     else
       @message = Message.new
     end
@@ -58,11 +54,6 @@ class ChatroomsController < ApplicationController
   chatroom.destroy
   #Use this action depending on the delete event
   #redirect_to sessions_path, flash[:notice] = { chatroom: [" The chatroom has been removed"]} 
-  end
-
-  def auth
-    puts("\n\n\n GROSSE BITE SA MERE \n\n\n")
-    self.show(password_params[:password])
   end
 
   private
