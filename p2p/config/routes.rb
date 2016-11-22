@@ -6,6 +6,7 @@ Rails.application.routes.draw do
 	post 'messages' => 'messages#create'
 	get 'sessions' => 'sessions#new'
 	post 'sessions' => 'sessions#create'
+	put 'sessions' => 'sessions#delete'
 
 	resources :chatrooms
     resources :messages

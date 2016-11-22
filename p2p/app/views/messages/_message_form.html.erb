@@ -20,4 +20,11 @@
 			$('.btn').css({'display' : 'none'});
 		}
 	});
+	$('#message_text').keydown(function(event) {
+	    if (event.keyCode == 13) {
+	        $('[data-send="message"]').click();
+	        $('[data-textarea="message"]').val("");
+	        return false;
+	    }
+	});
 </script>

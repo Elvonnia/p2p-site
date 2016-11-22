@@ -12,6 +12,7 @@ class SessionsController < ApplicationController
 		else
 			if user.save
 				session[:user_id] = user.id
+				session[:username] = user.username
 				redirect_to chatrooms_path
 			else
 				redirect_to sessions_path, flash[:notice] = {username: ["failed to save"]}
@@ -20,10 +21,10 @@ class SessionsController < ApplicationController
 	end
 
 	def delete
-	user = User.find(:user_id)
+	user = User.find(session[:user_id])
 	user.destroy
-	#Use this action depending on the delete event
-	#redirect_to sessions_path, flash[:notice] = { username: [" You have been disconnected "]} 
+	# Use this action depending on the delete event
+	redirect_to sessions_path, flash[:notice] = { session[:username] => [" You have been disconnected "]} 
 	
 	end
 
