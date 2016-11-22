@@ -13,7 +13,7 @@ class ChatroomsController < ApplicationController
   end
 
   def edit
-    @chatroom = Chatroom.find_by(chatroom_params)
+    @chatroom = Chatroom.find_by!(chatroom_params)
   end
 
   def create
@@ -25,7 +25,7 @@ class ChatroomsController < ApplicationController
       end
     else
       respond_to do |format|
-        flash[:notice] = {error: ["a chatroom with this name already exists"]}
+        flash[:notice] = {error: ["A chatroom with this name already exists"]}
         format.html { redirect_to new_chatroom_path }
         format.js { render template: 'chatrooms/chatroom_error.js.erb'} 
       end
@@ -33,19 +33,19 @@ class ChatroomsController < ApplicationController
   end
 
   def update
-    chatroom = Chatroom.find_by(new_chatroom_path)
+    chatroom = Chatroom.find_by!(new_chatroom_path)
     chatroom.update(chatroom_params)
     redirect_to chatroom
   end
 
   def show
-    @chatroom = Chatroom.find_by(chatroom_params)
+    @chatroom = Chatroom.find_by!(chatroom_params)
     @message = Message.new
   end
 
   private
 
     def chatroom_params
-      params.require(:chatroom).permit(:name)
+      params.require(:chatroom).find_by!(:name)
     end
 end
