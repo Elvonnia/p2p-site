@@ -34,8 +34,16 @@ class ChatroomsController < ApplicationController
 
   def show
     @chatroom = Chatroom.find(params[:id])
+    @chatroom = Chatroom.includes(:messages).find_by!(id: params[:id])
     @message = Message.new
   end
+
+  def delete
+  chatroom = Chatroom.find(:id)
+  chatroom.destroy
+  #Use this action depending on the delete event
+  #redirect_to sessions_path, flash[:notice] = { chatroom: [" The chatroom has been removed"]} 
+  
 
   private
 
