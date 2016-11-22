@@ -19,6 +19,14 @@ class SessionsController < ApplicationController
 		end
 	end
 
+	def delete
+	user = User.find(:user_id)
+	user.destroy
+	#Use this action depending on the delete event
+	#redirect_to sessions_path, flash[:notice] = { username: [" You have been disconnected "]} 
+	
+	end
+
 	private
 
     def user_params
