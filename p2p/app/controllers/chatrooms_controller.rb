@@ -5,15 +5,15 @@ class ChatroomsController < ApplicationController
     @chatrooms = Chatroom.all
   end
 
-  def new
-    if request.referrer.split("/").last == "chatrooms"
-      flash[:notice] = nil
-    end
-    @chatroom = Chatroom.new
-  end
+  #def new
+    #if request.referrer.split("/").last == "chatrooms"
+      #flash[:notice] = nil
+    #end
+    #@chatroom = Chatroom.new
+  #end
 
   def edit
-    @chatroom = Chatroom.find_by(chatroom_params)
+    @chatroom = Chatroom.find_by(params[:id])
   end
 
   def create
@@ -26,20 +26,20 @@ class ChatroomsController < ApplicationController
     else
       respond_to do |format|
         flash[:notice] = {error: ["a chatroom with this name already exists"]}
-        format.html { redirect_to new_chatroom_path }
+        format.html { redirect_to chatrooms_path }
         format.js { render template: 'chatrooms/chatroom_error.js.erb'} 
       end
     end
   end
 
   def update
-    chatroom = Chatroom.find_by(new_chatroom_path)
+    chatroom = Chatroom.find(params[:id])
     chatroom.update(chatroom_params)
     redirect_to chatroom
   end
 
   def show
-    @chatroom = Chatroom.find_by(chatroom_params)
+    @chatroom = Chatroom.find(params[:id])
     @message = Message.new
   end
 
