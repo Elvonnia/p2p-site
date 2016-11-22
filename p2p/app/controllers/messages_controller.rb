@@ -4,10 +4,11 @@ class MessagesController < ApplicationController
     message = Message.new(message_params)
     message.user = User.find(session[:user_id])
     if message.save
-		ActionCable.server.broadcast 'messages',
-			message: message.text,
-			user: message.user.username
-		head :ok
+      ActionCable.server.broadcast 'messages',
+        message: message.text,
+        user: message.user.username,
+        chatroom_id: message.chatroom_id
+      head :ok
     end
   end
 
