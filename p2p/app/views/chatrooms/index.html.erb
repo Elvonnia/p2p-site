@@ -1,0 +1,21 @@
+<div class="row col-md-8 col-md-offset-2" id="chatroom-title">
+  <h1>Chatrooms</h1>
+</div>
+
+<div class="row col-md-8 col-md-offset-2" id="chatrooms">
+
+  <div class="chatroom-form">
+  	<%= render partial: 'chatroom_form', locals: {chatroom: @chatroom} %>
+ </div>
+
+  <div id="chatroom-errors">
+    
+  </div>
+    <ul id="chatroom-index"> 
+  <% if @chatrooms.any? %>
+      <%= render @chatrooms%>
+  <%else %>
+    </ul>
+    <p>There are not chat rooms</p>
+  <% end %>
+</div>
