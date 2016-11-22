@@ -1,19 +1,19 @@
-<div class="row col-md-8 col-md-offset-2">
+<% if @chatroom.password != "" %>
+  <%= render partial: 'passwords/password_form' %>
+<% else %>
   <h1><%= @chatroom.name %></h1>
 
-<div class="panel panel-default">
-  <% if @chatroom.messages.any? %>
-    <div class="panel-body" id="messages" data-chatroom=  
-    <%=@chatroom.id%>>
-      <%= render partial: 'messages/message', collection: @chatroom.messages%>
+  <div class="row col-md-8 col-md-offset-2">
+    <div class="panel panel-default">
+      <% if @chatroom.messages.any? %>
+        <div class="panel-body" id="messages" data-chatroom=<%=@chatroom.id%>>
+          <%= render partial: 'messages/message', collection: @chatroom.messages%>
+        </div>
+      <%else%>
+        <div class="panel-body hidden" id="messages", data-chatroom=<%=@chatroom.id%>>
+        </div>
+      <%end%>
     </div>
-  <%else%>
-    <div class="panel-body hidden" id="messages", data-chatroom=  
-    <%=@chatroom.id%>>
-    </div>
-  <%end%>
-</div>
-
-
+  </div>
   <%= render partial: 'messages/message_form', locals: {message: @message, chatroom: @chatroom}%>
-</div>
+<% end %>
