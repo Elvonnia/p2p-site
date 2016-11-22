@@ -20,7 +20,10 @@ ActiveRecord::Schema.define(version: 20161121153757) do
   create_table "messages", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string "text",        limit: 3000
     t.string "chatroom_id"
+<<<<<<< HEAD
     t.string "user_id"
+=======
+>>>>>>> 44fb5bc7c74ccdeccc91bfca818424ae08cb7f8f
   end
 
   create_table "storefiles", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|

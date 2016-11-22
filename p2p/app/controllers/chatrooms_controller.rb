@@ -18,8 +18,9 @@ class ChatroomsController < ApplicationController
       end
     else
       respond_to do |format|
-        flash[:notice] = {error: ["a chatroom with this name already exists"]}
-        format.html { redirect_to chatrooms_path }
+        flash[:notice] = {error: ["A chatroom with this name already exists"]}
+        format.html { redirect_to new_chatroom_path }
+
         format.js { render template: 'chatrooms/chatroom_error.js.erb'} 
       end
     end
