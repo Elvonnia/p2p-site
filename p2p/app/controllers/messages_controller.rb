@@ -1,14 +1,19 @@
 class MessagesController < ApplicationController
 
   def create
-    ActionCable.server.broadcast 'messages', #messages is name of channel
-      message: "put content here",
-      user: "put username here"
-    head :ok #error
- 
+    message = Message.new(message_params)
+    message.user = current_user
+    if message.save
+      ActionCable.server.broadcast 'messages',
+        message: message.text,
+        user: message.user.username
+      head :ok
+    end
   end
 
-  def index
-  	@messages = Message.all
-  end
+  private
+
+  def message_params
+      params.require(:message).permit(:text, :chatroom_id)
+   end
 end
