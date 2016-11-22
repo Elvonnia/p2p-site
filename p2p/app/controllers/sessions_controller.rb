@@ -10,14 +10,12 @@ class SessionsController < ApplicationController
 		if existing_user
 			redirect_to sessions_path, flash[:notice] =  {username: ["Already exist"]}
 		else
-			user.save
-			redirect_to chatrooms_path
-			# if user.save
-			# 	session[:user_id] = user.id
-			# 	chatrooms_path
-			# else
-			# 	redirect_to root_path, flash[:notice] =  user.errors.messages
-   			# end
+			if user.save
+				session[:user_id] = user.id
+				redirect_to chatrooms_path
+			else
+				redirect_to sessions_path, flash[:notice] = {username: ["failed to save"]}
+   			end
 		end
 	end
 
