@@ -6,7 +6,7 @@ class ChatroomsController < ApplicationController
   end
 
   def edit
-    @chatroom = Chatroom.find_by(params[:id])
+    @chatroom = Chatroom.find_by(params[:user_id])
   end
 
   def create
