@@ -3,6 +3,7 @@ class MessagesController < ApplicationController
   def create
     message = Message.new(message_params)
     message.user = User.find(session[:user_id])
+    message.text = message.user.username + " : " + message.text
     if message.save
       ActionCable.server.broadcast 'messages',
         message: message.text,
